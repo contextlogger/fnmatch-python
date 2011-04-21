@@ -12,4 +12,19 @@ all :
 sis :
 	$(SIGN) -k $(KIT) --makesis --signsis -c $(CERT) -i pys60v1-fnmatch.pkg -o $(SISX_FILE)
 
+SITEHOME := ../context-logger/contextlogger.github.com
+PAGEDIR := fnmatch-python
+DLDIR := $(PAGEDIR)/download
+MKINDEX := ../context-logger/tools/bin/make-index-page.rb
+
+release :
+	-mkdir -p $(SITEHOME)/$(DLDIR)
+	cp fnmatch-pys60v1_self.sisx $(SITEHOME)/$(DLDIR)/
+	$(MKINDEX) $(SITEHOME)/$(DLDIR)
+	chmod -R a+rX $(SITEHOME)/$(PAGEDIR)
+	cd $(SITEHOME) && git add $(PAGEDIR)
+
+upload :
+	cd $(SITEHOME) && git commit -a -m updates && git push
+
 -include local.mk
