@@ -6,5 +6,5 @@ The `glob` and `fnmatch` modules are commonly required by Python scripts, yet th
 
 ## Download
 
-For a pre-built self-signed SIS file see http://new.contextlogger.org/fnmatch-python/download/.
+For a pre-built self-signed SIS file see the [downloads page](http://new.contextlogger.org/fnmatch-python/download/).
 
