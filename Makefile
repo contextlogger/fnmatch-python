@@ -2,7 +2,7 @@ CERT := dev
 KIT := s60_30
 DEVICE := default
 
-SIGN := ../context-logger/tools/bin/do-sis-signing.rb 
+SIGN := ../tools/bin/do-sis-signing.rb 
 SISX_FILE := fnmatch-pys60v1_$(CERT).sisx
 
 all :
@@ -12,10 +12,10 @@ all :
 sis :
 	$(SIGN) -k $(KIT) --makesis --signsis -c $(CERT) -i pys60v1-fnmatch.pkg -o $(SISX_FILE)
 
-SITEHOME := ../context-logger/contextlogger.github.com
+SITEHOME := ../contextlogger.github.com
 PAGEDIR := fnmatch-python
 DLDIR := $(PAGEDIR)/download
-MKINDEX := ../context-logger/tools/bin/make-index-page.rb
+MKINDEX := ../tools/bin/make-index-page.rb
 
 release :
 	-mkdir -p $(SITEHOME)/$(DLDIR)
