@@ -1,4 +1,8 @@
 *~
+\#*
+.\#*
+*.swp
+.DS_Store
 local.mk
 *.sis
 *.sisx
