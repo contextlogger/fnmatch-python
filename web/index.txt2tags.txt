@@ -1,0 +1,22 @@
+fnmatch and glob for PyS60
+
+%%mtime(%c)
+
+A makefile for packaging the ``glob`` and ``fnmatch`` Python modules as a SIS file.
+
+The ``glob`` and ``fnmatch`` modules are commonly required by Python scripts, yet these modules are not included in PyS60 1.4.5. You may use a SIS file to install them separately as required, or embed the SIS as part of your application installation package.
+
+h2. Binaries
+
+For a pre-built self-signed SIS file see the [downloads page download/].
+
+h2. Source Code
+
+http://github.com/contextlogger/fnmatch-python
+
+------------------------------------------------
+_signature_th_
+
+% Local Variables:
+% mode: longlines
+% End:

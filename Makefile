@@ -12,19 +12,29 @@ all :
 sis :
 	$(SIGN) -k $(KIT) --makesis --signsis -c $(CERT) -i pys60v1-fnmatch.pkg -o $(SISX_FILE)
 
-SITEHOME := ../contextlogger.github.com
-PAGEDIR := fnmatch-python
-DLDIR := $(PAGEDIR)/download
+.PHONY : web
+
+html :
+	../tools/bin/txt2tags --target xhtml --infile web/index.txt2tags.txt --outfile web/index.html --encoding utf-8 --verbose -C web/config.t2t
+
+web : html
+
+HTDOCS := ../contextlogger.github.com
+PAGEPATH := fnmatch-python
+PAGEHOME := $(HTDOCS)/$(PAGEPATH)
+DLPATH := $(PAGEPATH)/download
+DLHOME := $(HTDOCS)/$(DLPATH)
 MKINDEX := ../tools/bin/make-index-page.rb
 
 release :
-	-mkdir -p $(SITEHOME)/$(DLDIR)
-	cp fnmatch-pys60v1_self.sisx $(SITEHOME)/$(DLDIR)/
-	$(MKINDEX) $(SITEHOME)/$(DLDIR)
-	chmod -R a+rX $(SITEHOME)/$(PAGEDIR)
-	cd $(SITEHOME) && git add $(PAGEDIR)
+	-mkdir -p $(DLHOME)
+	cp -a fnmatch-pys60v1_self.sisx $(DLHOME)/
+	$(MKINDEX) $(DLHOME)
+	cp -a web/*.css $(PAGEHOME)/
+	cp -a web/*.html $(PAGEHOME)/
+	chmod -R a+rX $(PAGEHOME)
 
 upload :
-	cd $(SITEHOME) && git commit -a -m updates && git push
+	cd $(HTDOCS) && git add $(PAGEPATH) && git commit -a -m updates && git push
 
 -include local.mk
