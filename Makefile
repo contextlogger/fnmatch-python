@@ -14,10 +14,9 @@ sis :
 
 .PHONY : web
 
-html :
+web :
+	cp -a ../tools/web/hiit.css web/
 	../tools/bin/txt2tags --target xhtml --infile web/index.txt2tags.txt --outfile web/index.html --encoding utf-8 --verbose -C web/config.t2t
-
-web : html
 
 HTDOCS := ../contextlogger.github.com
 PAGEPATH := fnmatch-python
