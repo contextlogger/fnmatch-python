@@ -23,6 +23,8 @@
 [0x1028315f], 0, 0, 0, {"Series60ProductID"} ;; s60_50
 ;; Product ID unknown ;; s60_51 (Symbian^2)
 [0x20029a73], 0, 0, 0, {"Series60ProductID"} ;; s60_52 (Symbian^3)
+;;[0x20029a73], 0, 0, 0, {"Series60ProductID"} ;; s60_53 (Symbian Anna)
+[0x2003a678], 0, 0, 0, {"Series60ProductID"} ;; s60_54 (Nokia Belle)
 
 
 ;; If we want compressed, but might lead to conflicts with other PyS60 versions, as not binary compatible.
